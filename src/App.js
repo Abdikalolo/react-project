@@ -30,7 +30,7 @@ function App (){
     <div className='App'>
       <Header/>
       <div className='container mt-4'>
-        <AddProjectForm />
+        <AddProjectForm addProject={AddProject}/>
         <SearchBar />
         <ProjectList projects={projects}/>
       </div>

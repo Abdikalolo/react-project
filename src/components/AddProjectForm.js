@@ -1,30 +1,45 @@
-function AddProjectForm(){
-    return (
-        <div className="card p-4 mb-4">
+import { useState } from "react";
+function AddProjectForm({ addProject }){
+    const[title, setTitle] = useState("");
+    const[description, setDescription] = useState("");
+
+    function handleSubmit(e){
+        e.preventDefault();
+
+        const newProject = {
+            id: Date.now(),
+            title: title,
+            description: description
+        };
+
+        addProject(newProject);
+        setTitle("");
+        setDescription("");
+    }
+
+    return(
+        <form className="card p-4 mb-4"
+        onSubmit={handleSubmit}>
             <h3>Add Project</h3>
 
-            <div className="mb-3">
-                <label className="form-label">Title</label>
-                <input 
-                      type="text"
-                      className="form-control"
-                      placeholder="Enter Project Title"/>
-            </div>
+            <input
+                 className="form-control mb-3"
+                 placeholder="Project Description"
+                 value={title}
+                 onChange={(e)=> setTitle(e.target.value)}
+            />
 
-            <div className="mb-3">
-                <label className="form-label">Description</label>
-                <textarea  
-                         className="form-control"
-                         rows= "3"
-                         placeholder="Enter Project Description"
-                ></textarea>
-            </div>
+            <textarea
+                   className="form-control mb-3"
+                   placeholder="Project Title"
+                   value={description}
+                   onChange={(e) => setDescription(e.target.value)}
+            />
 
-            <button className="btn btn-primary">
-                Add
+            <button className="btn btn-primaty">
+                Add Project
             </button>
-        </div>
-        
+        </form>
     );
 }
 
