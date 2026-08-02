@@ -22,17 +22,23 @@ function App (){
     description: "An App that manages daily tasks",
   }]);
 
+  const [search, setSearch] = useState("");
+
   function AddProject(newProject){
     setProjects([...projects, newProject]);
   }
+
+  const filteredProjects = projects.filter((project) =>
+  project.title.toLowerCase().includes(search.toLocaleLowerCase())
+  );
   
   return (
     <div className='App'>
       <Header/>
       <div className='container mt-4'>
         <AddProjectForm addProject={AddProject}/>
-        <SearchBar />
-        <ProjectList projects={projects}/>
+        <SearchBar search={search} setSearch={setSearch} />
+        <ProjectList projects={filteredProjects}/>
       </div>
     </div>
   );
