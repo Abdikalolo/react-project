@@ -2,6 +2,7 @@ import './App.css';
 import Header from './components/Header';
 import AddProjectForm from './components/AddProjectForm';
 import SearchBar from './components/SearchBar';
+import ProjectList from './components/ProjectList';
 
 function App (){
   return (
@@ -10,6 +11,7 @@ function App (){
       <div className='container mt-4'>
         <AddProjectForm />
         <SearchBar />
+        <ProjectList/>
       </div>
     </div>
   );
