@@ -1,12 +1,14 @@
-function SearchBar(){
+function SearchBar({search, setSearch}){
     return(
-        <div className="mb-4">
-            <input 
-                 type="text"
-                 className="form-control"
-                 placeholder="Search Projects"
-            ></input>
-        </div>
+        <input 
+            type="text"
+            className="form-control mb-4"
+            placeholder="Search Projects"
+            value={search}
+            onChange={(e) =>
+                setSearch(e.target.value)
+            }
+        />
     );
 }
-export default SearchBar;
+ export default SearchBar;
