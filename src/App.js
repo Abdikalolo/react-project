@@ -22,6 +22,9 @@ function App (){
     description: "An App that manages daily tasks",
   }]);
 
+  function AddProject(newProject){
+    setProjects([...projects, newProject]);
+  }
   
   return (
     <div className='App'>
@@ -29,7 +32,7 @@ function App (){
       <div className='container mt-4'>
         <AddProjectForm />
         <SearchBar />
-        <ProjectList/>
+        <ProjectList projects={projects}/>
       </div>
     </div>
   );
